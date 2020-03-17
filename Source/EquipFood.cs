@@ -5,7 +5,11 @@ using System.Text;
 using Verse;
 using Verse.AI;
 using RimWorld;
+#if HARMONY_1_2
 using Harmony;
+#elif HARMONY_2_0
+using HarmonyLib;
+#endif
 using System.Reflection;
 using UnityEngine;
 
@@ -37,7 +41,11 @@ namespace EquipFood
         public Mod(ModContentPack content) : base(content)
         {
             GetSettings<EquipFoodSettings>();
+#if HARMONY_1_2
             var harmony = HarmonyInstance.Create("likeafox.rimworld.equipfood");
+#elif HARMONY_2_0
+            var harmony = new Harmony("likeafox.rimworld.equipfood");
+#endif
             harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
         }
 
