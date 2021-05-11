@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">RW_1_0</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -27,6 +27,11 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <OutputPath>..\1.1\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE;RW_1_1;HARMONY_2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RW_1_2|AnyCPU' ">
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>..\1.2\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;RW_1_2;HARMONY_2_0</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'RW_1_0|AnyCPU' ">
@@ -64,6 +69,28 @@
       <Private>False</Private>
     </Reference>-->
   </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'RW_1_2|AnyCPU' ">
+    <Reference Include="0Harmony">
+      <HintPath>$(RW_MODDING)\Harmony\Harmony.2.0.4.0\net472\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RW_MODDING)\RW_VERSIONS\1.2\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(RW_MODDING)\RW_VERSIONS\1.2\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(RW_MODDING)\RW_VERSIONS\1.2\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <!--<Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(RW_MODDING)\RW_VERSIONS\1.2\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>-->
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="System" />
@@ -84,10 +111,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>py "$(RW_MODDING)\version_numberer.py" "$(MSBuildProjectDirectory)"</PreBuildEvent>
+    <PreBuildEvent>py "$(RW_MODDING)\Tools\version_numberer.py" "$(MSBuildProjectDirectory)"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>py "$(RW_MODDING)\Publisher\publisher.py" "$(MSBuildProjectDirectory)\.."</PostBuildEvent>
+    <PostBuildEvent>py "$(RW_MODDING)\Tools\Publisher\publisher.py" "$(MSBuildProjectDirectory)\.."</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

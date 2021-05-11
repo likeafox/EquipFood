@@ -9,12 +9,15 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		RW_1_0|Any CPU = RW_1_0|Any CPU
 		RW_1_1|Any CPU = RW_1_1|Any CPU
+		RW_1_2|Any CPU = RW_1_2|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}.RW_1_0|Any CPU.ActiveCfg = RW_1_0|Any CPU
 		{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}.RW_1_0|Any CPU.Build.0 = RW_1_0|Any CPU
 		{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}.RW_1_1|Any CPU.ActiveCfg = RW_1_1|Any CPU
 		{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}.RW_1_1|Any CPU.Build.0 = RW_1_1|Any CPU
+		{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}.RW_1_2|Any CPU.ActiveCfg = RW_1_2|Any CPU
+		{319AC32E-D4BB-4E49-A4A5-99EA3AFC4CD9}.RW_1_2|Any CPU.Build.0 = RW_1_2|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
